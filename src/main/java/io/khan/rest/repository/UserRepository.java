@@ -10,7 +10,7 @@ import io.khan.rest.model.User;
 public interface UserRepository extends JpaRepository<User, Long>{
     User findByEmail(String email);
     @Query
-    User findByName(String name);
+    User findByNameIgnoreCase(String name);
     @Query("SELECT COUNT(u) FROM User u WHERE u.email = ?1")
     Long countByEmail(String email);
 }
